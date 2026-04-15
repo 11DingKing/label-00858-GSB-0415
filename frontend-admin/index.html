@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>星际空间 - 手势交互3D星球</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- MediaPipe CDN Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 3D 画布容器 -->
+      <div id="canvas-container"></div>
+
+      <!-- UI 覆盖层 -->
+      <div id="ui-overlay">
+        <!-- 顶部导航栏 -->
+        <header class="header">
+          <div class="logo-section">
+            <div class="logo-icon">🪐</div>
+            <div class="logo-text">
+              <h1>星际空间</h1>
+              <span class="subtitle">STELLAR SPACE</span>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="status-indicator">
+              <span id="status-dot" class="dot"></span>
+              <span id="status-text">系统初始化中...</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- 左侧信息面板 -->
+        <aside class="info-panel left-panel">
+          <div class="panel-title">
+            <span class="panel-icon">📡</span>
+            星球数据
+          </div>
+          <div class="info-content">
+            <div class="info-row">
+              <span class="info-label">名称</span>
+              <span class="info-value">炽焰星</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">类型</span>
+              <span class="info-value">熔岩行星</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">温度</span>
+              <span class="info-value highlight">2,400°C</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">直径</span>
+              <span class="info-value">12,742 km</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">星环</span>
+              <span class="info-value">双层冰晶环</span>
+            </div>
+          </div>
+        </aside>
+
+
+        <!-- 底部控制指南 -->
+        <main class="controls-guide">
+          <div class="guide-title">手势控制指南</div>
+          <div class="cards-container">
+            <div class="card" data-gesture="rotate">
+              <div class="card-glow"></div>
+              <div class="icon">✋</div>
+              <h3>旋转视角</h3>
+              <p>左右旋转手掌<br/>控制相机环绕</p>
+              <div class="card-indicator"></div>
+            </div>
+            <div class="card" data-gesture="zoom-out">
+              <div class="card-glow"></div>
+              <div class="icon">✊</div>
+              <h3>远离星球</h3>
+              <p>握拳并拉远<br/>速度先慢后快</p>
+              <div class="card-indicator"></div>
+            </div>
+            <div class="card" data-gesture="zoom-in">
+              <div class="card-glow"></div>
+              <div class="icon">🖐️</div>
+              <h3>靠近星球</h3>
+              <p>张开手掌靠近<br/>速度先快后慢</p>
+              <div class="card-indicator"></div>
+            </div>
+          </div>
+        </main>
+
+        <!-- 角落装饰 -->
+        <div class="corner-decor top-left"></div>
+        <div class="corner-decor top-right"></div>
+        <div class="corner-decor bottom-left"></div>
+        <div class="corner-decor bottom-right"></div>
+
+        <div id="toast-container"></div>
+
+        <!-- MediaPipe 隐藏视频元素 -->
+        <video id="input-video" style="display: none;"></video>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

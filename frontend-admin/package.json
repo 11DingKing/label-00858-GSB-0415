@@ -1,0 +1,16 @@
+{
+  "name": "trea-space-visualizer",
+  "version": "1.0.0",
+  "description": "A 3D interactive space visualizer controlled by hand gestures",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
